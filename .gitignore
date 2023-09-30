@@ -37,3 +37,4 @@ ehthumbs.db
 Thumbs.db
 
 .ipynb_checkpoints
+.gitignore
