@@ -1,0 +1,26 @@
+{
+    "name": [
+        "Vanilla XGBoost",
+        "Reweighting",
+        "LFR",
+        "Disparate Impact Remover",
+        "Calibrated Equality of Odds",
+        "Reject Option Classification"
+    ],
+    "balanced accuracy": [
+        0.7090393182610983,
+        0.70948416804575,
+        0.4965956512189765,
+        0.7112519687906311,
+        0.6183875942406194,
+        0.708576116587641
+    ],
+    "disparate impact": [
+        0.92911088770505,
+        0.9385394511281405,
+        1.0497296357381716,
+        0.9481187766809394,
+        0.9169900305285925,
+        0.9405863176931226
+    ]
+}
