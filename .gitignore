@@ -38,3 +38,4 @@ Thumbs.db
 
 .ipynb_checkpoints
 .gitignore
+data/HMDA 2022 New Jersey.csv
