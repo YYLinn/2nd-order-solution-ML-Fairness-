@@ -3,32 +3,30 @@
 #### Team Members: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124)
 
 ## Table of Contents
-1. [Introduction]()
-2. [Project Objective & Goals]()
-    <br>2.1 [2nd Order Solutions]()
-3. [Datasets]()
-4. [Overall Methodology]()
-5. [Results]()
-6. [Conclusion]()
-7. [Usage]()
+1. [Introduction](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#1-Introduction)
+2. [Project Objective & Goals](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#2-Project-Objective-&-Goals)
+3. [Datasets](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#3-Dataset)
+4. [Overall Methodology](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#4-Overall-Methodology)
+5. [Results](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#5-Results)
+6. [Conclusion](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#6-Conclusion)
+7. [Usage](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#7-Usage)
 
 
 
 ## 1.Introduction
-Our client, 2nd Order Solutions (2OS), is a financial consulting firm committed to ensuring
-fairness in their financial solutions, as a core principle to their services. Besides, they must adhere
-to the strict regulatory framework laid out in regulations such as the Equal Credit Opportunity Act,
-which prohibits discrimination based on sensitive attributes like race and sex. Since, Machine
-Learning algorithms are prone to mimic the biases existing in the real-world data, our goal is to
-provide 2OS with tools to assess fairness and mitigate the biases before model handover, enhancing
-their business processes and value proposition.
+2nd Order Solutions, our client in this capstone project, is a financial consulting firm that works on providing analytical solutions to their financial partners – mainly banks domestically and internationally. The company uses most of its time to build statistical models to help clients craft valuation and credit lending policies, fraud detection, and due diligence.
+<br>As an institution that provides financial services to the public, 2OS, and its clients operate under a strict network of regulatory frameworks and oversight bodies. A key aspect of such regulation is the requirement – under the [Equal Credit Opportunity Act](https://consumer.ftc.gov/articles/credit-discrimination) – that the models that decide what consumers receive financial products may not discriminate on protected characteristics of the clients such as gender, race, disability status, and ethnicity. Such requirements are fundamental to the service that 2OS provides because current regulations render any model that introduces biases unusable.
+How machine learning algorithms perpetuate bias is keenly researched in academia and the tech media world. A frequent way bias shows up is through biased training data. For example, if most women were denied opportunities in a company while few men were, then an algorithm trained on this data to screen resumes would doubtlessly recommend men disproportionately. In sensitive fields such as healthcare and finance, such bias needs to be carefully guarded against. Our goal is to provide 2OS with tools to assess fairness and mitigate the biases before model handover, enhancing their business processes and value proposition.
 
 
 ## 2.Project Objective & Goals
+The purpose of our capstone team and this project is to research the evaluation of fairness in financial machine-learning products and evaluate current packages that quantify algorithmic bias in models. We define fairness as an equal opportunity to obtain a positive outcome for both the underprivileged and the privileged groups. The goal is to make recommendations to 2OS  on which statistical package(s) best fulfills its need to remain compliant with financial regulations.
+The purpose of our capstone team and this project is to research the evaluation of fairness in financial machine-learning products and evaluate current packages that quantify algorithmic bias in models. 
 
 
 
-## 3.Dataset
+
+## 3.Datasets
 Evaluation and mitigation of biases is applied to two datasets:
 
 1. [Taiwanese Credit Card Dataset](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients)
@@ -56,15 +54,29 @@ This dataset comprisesof an individual’s annual income results from various fa
 
 
 ## 4.Overall Methodology
-
-
 ![Picture1](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/f496d2a1-747a-48dd-a458-6628174149b9)
 
-1. Building an unmitigated model
 
-2. Fit Python packages (Fairness Assessment+Bias Mitigation)
+### 4.1 Building an unmitigated model
+We opted for an unmitigated baseline model using XGBoost, selected to align with client stipulations and preferences. XGBoost is preferred by clients due to its scalability and its enhanced performance capabilities. Additionally, feature importance plots help make the model explainable.
 
-3. Performance Analysis and Comparison
+
+### 4.2 Fit Python packages (Fairness Assessment+Bias Mitigation)
+We built a baseline model using this XGBoost and, using various packages, tried to mitigate the bias in this baseline model. We rigorously assess these fairness tools to ensure their reliability and effectiveness, allowing us to offer informed recommendations on their practical use. We try various methods and metrics for each package to evaluate their effectiveness and compatibility with the client’s needs
+
+### 4.3 Performance Analysis and Comparison
+#### 4.3.1 Evaluation Metrics
+There has been a wealth of studies on fairness in machine learning and algorithmic biases in recent years. Specifically, scholars have proposed several definitions of fairness and different metrics that quantify bias – such as statistical parity, equalized odds, and disparate impact.
+Our analysis will cover a suite of fairness metrics but will focus on Disparate Impact. We zero in on the disparate impact metric due to its salience in the consumer lending space. Disparate Impact measures the ratio between the proportion of each group receiving the positive outcome. This is a commonly cited metric measuring fairness in financial decisions. In fact, the Consumer Compliance handbook published by the Board of Governors at the Federal Reserve highlights disparate impact as a textbook example of a violation of the ECOA.
+
+The Disparate Impact (DI) is calculated using the formula:
+
+$$ \text{DI} = \frac{\text{Positive Outcome}_{\text{unprivileged}}}{\text{Postive Outcome}_{\text{privileged}}} $$
+
+#### 4.3.2 Balanced Accuracy 
+Balanced Accuracy calculates the mean between the True Positive Rate and the True Negative Rate in the model predictions. We want our clients to be able to grant financial products to people who would not default and deny them to people who would. Balanecd Accuracy is also ideal for Unbalanced Data, in cases where there are very few defaults in the data, this metric can capture model performance accurately.
+
+
 
 
 **1. Building an unmitigated model**
@@ -137,10 +149,12 @@ The smclarify package, provided by Amazon Web Services (AWS), is a powerful tool
 
 
 
-## Results
+## 5.Results
+
+## 6.Conclusion
 
 
-## Usage
+## 7.Usage
 
 The exploratory analysis on the data can be found at:
 
