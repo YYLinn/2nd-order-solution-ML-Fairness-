@@ -1,4 +1,4 @@
-#Fairness in Machine Learning for 2nd Order Solutions
+# Fairness in Machine Learning for 2nd Order Solutions
 
 #### Team Members: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124))
 
