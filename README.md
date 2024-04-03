@@ -1,6 +1,19 @@
-# 2nd-order-solution-ML-Fairness-
+**Fairness in Machine Learning for 2nd Order Solutions**
+
+#### Team Members: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124))
+
+## Introduction
+
+
+## Dataset
+
+**Some features of the data:**
+
 
 **Overall Methodology**
+
+
+![Picture1](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/f496d2a1-747a-48dd-a458-6628174149b9)
 
 1. Building an unmitigated model
 
