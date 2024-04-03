@@ -1,0 +1,26 @@
+{
+    "name": [
+        "Vanilla XGBoost"
+    ],
+    "balanced accuracy": [
+        0.844072401331438
+    ],
+    "disparate impact": [
+        0.6148719415936063
+    ],
+    "accuracy": [
+        0.8246480430456254
+    ],
+    "F1_score": [
+        0.7084916064207817
+    ],
+    "false_omission_rate": [
+        0.04467472654001151
+    ],
+    "false_omission_rate_ratio": [
+        0.5098508868670159
+    ],
+    "threshold_value": [
+        0.23
+    ]
+}
