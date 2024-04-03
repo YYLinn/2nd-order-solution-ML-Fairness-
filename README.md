@@ -1,16 +1,44 @@
 # Fairness in Machine Learning for 2nd Order Solutions
 
-#### Team Members: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124))
+#### Team Members: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124)
 
 ## Introduction
-
+Our client, 2nd Order Solutions (2OS), is a financial consulting firm committed to ensuring
+fairness in their financial solutions, as a core principle to their services. Besides, they must adhere
+to the strict regulatory framework laid out in regulations such as the Equal Credit Opportunity Act,
+which prohibits discrimination based on sensitive attributes like race and sex. Since, Machine
+Learning algorithms are prone to mimic the biases existing in the real-world data, our goal is to
+provide 2OS with tools to assess fairness and mitigate the biases before model handover, enhancing
+their business processes and value proposition.
 
 ## Dataset
+Evaluation and mitigation of biases is applied to two datasets:
 
+1. [Taiwanese Credit Card Dataset](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients)
+This dataset comprises of customers' default payments in Taiwan in 2005.
 **Some features of the data:**
 
+Target Variable *Default/Non-Default*
 
-**Overall Methodology**
+Faetures: *23*
+
+Instances: *30000*
+
+
+2. [Adult(Census) Data set](https://archive.ics.uci.edu/dataset/2/adult)
+This dataset comprisesof an individual’s annual income results from various factors. Also known as "Census Income" dataset.
+
+**Some features of the data:**
+   
+Target Variable *Income	>50K, <=50K*
+
+Faetures: *14*
+
+Instances: *48842*
+
+
+
+## Overall Methodology
 
 
 ![Picture1](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/f496d2a1-747a-48dd-a458-6628174149b9)
@@ -85,5 +113,41 @@ The Responsible AI Toolbox encompasses a comprehensive array of tools, including
 **Smclarify**
 
 The smclarify package, provided by Amazon Web Services (AWS), is a powerful tool within the AWS SageMaker suite designed for bias detection and explainability in machine learning models. It aids in identifying and reporting various types of biases in datasets and models—both pre- and post-training—to promote fairness. Additionally, it offers explainability features to elucidate the impact of input features on model predictions, which is vital for model transparency, debugging, and improvement. However, It focuses on identifying and explaining bias rather than providing direct solutions or strategies to mitigate these biases within machine learning models.
+
+
+
+
+
+
+
+## Results
+
+
+## Usage
+
+The exploratory analysis on the data can be found at:
+
+``` ```
+
+The initial unmitigated model can be found at :
+
+
+``` ```
+
+The algorithm to implement DAME matching can be found at: 
+
+``` ```
+
+
+The pre processing and post processing techniques for bias mitigation from AIF360 can be found at: 
+
+``` ```
+
+The final files and results can be accessed at: 
+
+``` ```
+
+Documentation related to the project can be found at: 
+``` ``` 
 
 
