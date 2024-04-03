@@ -3,7 +3,7 @@
 #### Team Members: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124)
 
 ## Table of Contents
-1. [Introduction](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#1-Introduction)
+1. [Introduction](#1-Introduction)
 2. [Project Objective & Goals](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#2-Project-Objective-&-Goals)
 3. [Datasets](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#3-Dataset)
 4. [Overall Methodology](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#4-Overall-Methodology)
@@ -68,8 +68,10 @@ We built a baseline model using this XGBoost and, using various packages, tried 
 There has been a wealth of studies on fairness in machine learning and algorithmic biases in recent years. Specifically, scholars have proposed several definitions of fairness and different metrics that quantify bias – such as statistical parity, equalized odds, and disparate impact.
 Our analysis will cover a suite of fairness metrics but will focus on Disparate Impact. We zero in on the disparate impact metric due to its salience in the consumer lending space. Disparate Impact measures the ratio between the proportion of each group receiving the positive outcome. This is a commonly cited metric measuring fairness in financial decisions. In fact, the Consumer Compliance handbook published by the Board of Governors at the Federal Reserve highlights disparate impact as a textbook example of a violation of the ECOA.
 
-The Disparate Impact (DI) is calculated using t![1_yeR8SOoMQX82OZirmDlA-A](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/159fe840-ba8c-417e-93b6-5e8a2068a0a6)
-he formula:
+The Disparate Impact (DI) is calculated using the formula:
+
+![1_yeR8SOoMQX82OZirmDlA-A](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/159fe840-ba8c-417e-93b6-5e8a2068a0a6)
+
 
 
 
@@ -174,7 +176,7 @@ pip install -r requirements.txt
 # Run the analysis script to perform the required experimentation
 cd 03_analysis/AIF360
 python
-
+```
 
 Documentation related to the project can be found at: 
 ``` https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/tree/main/05_documents``` 
