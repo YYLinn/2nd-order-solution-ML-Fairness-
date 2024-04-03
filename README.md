@@ -1,6 +1,7 @@
 # 2nd-order-solution-ML-Fairness-
 
 Overall Methodology
+
 Building an unmitigated model
 Fit Python packages (Fairness Assessment+Bias Mitigation)
 Performance Analysis and Comparison
