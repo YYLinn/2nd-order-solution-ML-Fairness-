@@ -3,13 +3,13 @@
 #### Team Members: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124)
 
 ## Table of Contents
-1. [Introduction](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#1-Introduction)
-2. [Project Objective & Goals](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#2-Project-Objective-&-Goals)
-3. [Datasets](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#3-Dataset)
-4. [Overall Methodology](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#4-Overall-Methodology)
-5. [Results](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#5-Results)
-6. [Conclusion](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#6-Conclusion)
-7. [Usage](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/edit/main/README.md#7-Usage)
+1. [Introduction](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#1-Introduction)
+2. [Project Objective & Goals](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#2-Project-Objective-&-Goals)
+3. [Datasets](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#3-Dataset)
+4. [Overall Methodology](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#4-Overall-Methodology)
+5. [Results](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#5-Results)
+6. [Conclusion](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#6-Conclusion)
+7. [Usage](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#7-Usage)
 
 
 
@@ -58,8 +58,7 @@ This dataset comprisesof an individual’s annual income results from various fa
 
 
 ### 4.1 Building an unmitigated model
-We opted for an unmitigated baseline model using XGBoost, selected to align with client stipulations and preferences. XGBoost is preferred by clients due to its scalability and its enhanced performance capabilities. Additionally, feature importance plots help make the model explainable.
-
+We opted for an unmitigated baseline model using XGBoost, selected to align with client stipulations and preferences. 
 
 ### 4.2 Fit Python packages (Fairness Assessment+Bias Mitigation)
 We built a baseline model using this XGBoost and, using various packages, tried to mitigate the bias in this baseline model. We rigorously assess these fairness tools to ensure their reliability and effectiveness, allowing us to offer informed recommendations on their practical use. We try various methods and metrics for each package to evaluate their effectiveness and compatibility with the client’s needs
@@ -69,9 +68,10 @@ We built a baseline model using this XGBoost and, using various packages, tried 
 There has been a wealth of studies on fairness in machine learning and algorithmic biases in recent years. Specifically, scholars have proposed several definitions of fairness and different metrics that quantify bias – such as statistical parity, equalized odds, and disparate impact.
 Our analysis will cover a suite of fairness metrics but will focus on Disparate Impact. We zero in on the disparate impact metric due to its salience in the consumer lending space. Disparate Impact measures the ratio between the proportion of each group receiving the positive outcome. This is a commonly cited metric measuring fairness in financial decisions. In fact, the Consumer Compliance handbook published by the Board of Governors at the Federal Reserve highlights disparate impact as a textbook example of a violation of the ECOA.
 
-The Disparate Impact (DI) is calculated using the formula:
+The Disparate Impact (DI) is calculated using t![1_yeR8SOoMQX82OZirmDlA-A](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/159fe840-ba8c-417e-93b6-5e8a2068a0a6)
+he formula:
 
-$$ \text{DI} = \frac{\text{Positive Outcome}_{\text{unprivileged}}}{\text{Postive Outcome}_{\text{privileged}}} $$
+
 
 #### 4.3.2 Balanced Accuracy 
 Balanced Accuracy calculates the mean between the True Positive Rate and the True Negative Rate in the model predictions. We want our clients to be able to grant financial products to people who would not default and deny them to people who would. Balanecd Accuracy is also ideal for Unbalanced Data, in cases where there are very few defaults in the data, this metric can capture model performance accurately.
@@ -106,10 +106,9 @@ Package Name, GitHub Repository
 10. PiML, https://github.com/SelfExplainML/PiML-Toolbox
 
 
-Out of the ten packages, AI Fairness 360 performs the best…..
+Out of the ten packages, AI Fairness 360 outperforms teh rest in terms of bias mitigation, usability, generalizability. 
 
-
-Below, we include a brief description of the other 9 packages and why we removed them from consideration.
+Below, we include a brief description of the other 9 packages that we tested for bias mitigation and teh reasons behind their exclusion from the experimental analysis.
 
 
 **DALEX** 
@@ -145,40 +144,39 @@ The smclarify package, provided by Amazon Web Services (AWS), is a powerful tool
 
 
 
-
-
-
-
 ## 5.Results
 
+The pre and post processing techniques of AIF 360 on mitigation of biases across race as the sensitive attribute on the adult dataset yield the following results.
+![output](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/d13c2383-2db9-46fd-ba28-c10c1071fc85)
+
+
 ## 6.Conclusion
+In conclusion of the analysis oerformed, we recommend to follow a fairness pipeline as shown:
+
+<img width="1440" alt="Screenshot 2024-04-03 at 6 47 09 PM" src="https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/2f21c7f7-46ce-4077-88ed-0898c6f71fd5">
+
+
 
 
 ## 7.Usage
 
-The exploratory analysis on the data can be found at:
 
-``` ```
+```
+# Create a virutal env to install the requierd packages
+python -m venv /path/to/new/virtual/environment
+source /path/to/new/virtual/environment/bin/activate
 
-The initial unmitigated model can be found at :
+# Clone the repository and install the required packages
+git clone https://github.com/YYLinn/2nd-order-solution-ML-Fairness-.git
+cd 2nd-order-solution-ML-Fairness
+pip install -r requirements.txt
 
+# Run the analysis script to perform the required experimentation
+cd 03_analysis/AIF360
+python
 
-``` ```
-
-The algorithm to implement DAME matching can be found at: 
-
-``` ```
-
-
-The pre processing and post processing techniques for bias mitigation from AIF360 can be found at: 
-
-``` ```
-
-The final files and results can be accessed at: 
-
-``` ```
 
 Documentation related to the project can be found at: 
-``` ``` 
+``` https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/tree/main/05_documents``` 
 
 
