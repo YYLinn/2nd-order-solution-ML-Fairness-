@@ -3,8 +3,8 @@
 #### Contributors: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124)
 
 ## Table of Contents
-1. [Introduction](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-?tab=readme-ov-file#1-Inroduction)  
-2. [Project Objective & Goals](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-?tab=readme-ov-file#2-Project-Objective-&-Goals) 
+1. [Introduction](#Introduction)
+2. [Project Objective & Goals](#Goals)
 3. [Datasets](#Datasets)  
 4. [Overall Methodology](#Methodology)  
 5. [Results](#Results)
@@ -13,13 +13,13 @@
 
 
 
-## 1.Introduction 
+## 1.Introduction <a name="Introduction"></a>
 2nd Order Solutions, our client in this capstone project, is a financial consulting firm that works on providing analytical solutions to their financial partners – mainly banks domestically and internationally. The company uses most of its time to build statistical models to help clients craft valuation and credit lending policies, fraud detection, and due diligence.
 <br>As an institution that provides financial services to the public, 2OS, and its clients operate under a strict network of regulatory frameworks and oversight bodies. A key aspect of such regulation is the requirement – under the [Equal Credit Opportunity Act](https://consumer.ftc.gov/articles/credit-discrimination) – that the models that decide what consumers receive financial products may not discriminate on protected characteristics of the clients such as gender, race, disability status, and ethnicity. Such requirements are fundamental to the service that 2OS provides because current regulations render any model that introduces biases unusable.
 How machine learning algorithms perpetuate bias is keenly researched in academia and the tech media world. A frequent way bias shows up is through biased training data. For example, if most women were denied opportunities in a company while few men were, then an algorithm trained on this data to screen resumes would doubtlessly recommend men disproportionately. In sensitive fields such as healthcare and finance, such bias needs to be carefully guarded against. Our goal is to provide 2OS with tools to assess fairness and mitigate the biases before model handover, enhancing their business processes and value proposition.
 
 
-## 2.Project Objective & Goals 
+## 2.Project Objective & Goals <a name="Goals"></a>
 The purpose of our capstone team and this project is to research the evaluation of fairness in financial machine-learning products and evaluate current packages that quantify algorithmic bias in models. We define fairness as an equal opportunity to obtain a positive outcome for both the underprivileged and the privileged groups. The goal is to make recommendations to 2OS  on which statistical package(s) best fulfills its need to remain compliant with financial regulations.
 The purpose of our capstone team and this project is to research the evaluation of fairness in financial machine-learning products and evaluate current packages that quantify algorithmic bias in models. 
 
