@@ -1,32 +1,32 @@
 # Fairness in Machine Learning for 2nd Order Solutions
 
-#### Team Members: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124)
+#### Contributors: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124)
 
 ## Table of Contents
-1. [Introduction](#1-Introduction)
-2. [Project Objective & Goals](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#2-Project-Objective-&-Goals)
-3. [Datasets](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#3-Dataset)
-4. [Overall Methodology](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#4-Overall-Methodology)
-5. [Results](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#5-Results)
-6. [Conclusion](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#6-Conclusion)
-7. [Usage](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/blob/main/README.md#7-Usage)
+1. [Introduction](#Introduction)
+2. [Project Objective & Goals](#Objectives)
+3. [Datasets](#Datasets)
+4. [Overall Methodology](#Methodology)
+5. [Results](#Results)
+6. [Conclusion](#Conclusion)
+7. [Usage](#Usage)
 
 
 
-## 1.Introduction
+## 1.Introduction <a name="Introduction"></a>
 2nd Order Solutions, our client in this capstone project, is a financial consulting firm that works on providing analytical solutions to their financial partners – mainly banks domestically and internationally. The company uses most of its time to build statistical models to help clients craft valuation and credit lending policies, fraud detection, and due diligence.
 <br>As an institution that provides financial services to the public, 2OS, and its clients operate under a strict network of regulatory frameworks and oversight bodies. A key aspect of such regulation is the requirement – under the [Equal Credit Opportunity Act](https://consumer.ftc.gov/articles/credit-discrimination) – that the models that decide what consumers receive financial products may not discriminate on protected characteristics of the clients such as gender, race, disability status, and ethnicity. Such requirements are fundamental to the service that 2OS provides because current regulations render any model that introduces biases unusable.
 How machine learning algorithms perpetuate bias is keenly researched in academia and the tech media world. A frequent way bias shows up is through biased training data. For example, if most women were denied opportunities in a company while few men were, then an algorithm trained on this data to screen resumes would doubtlessly recommend men disproportionately. In sensitive fields such as healthcare and finance, such bias needs to be carefully guarded against. Our goal is to provide 2OS with tools to assess fairness and mitigate the biases before model handover, enhancing their business processes and value proposition.
 
 
-## 2.Project Objective & Goals
+## 2.Project Objective & Goals <a name="Objectives"></a>
 The purpose of our capstone team and this project is to research the evaluation of fairness in financial machine-learning products and evaluate current packages that quantify algorithmic bias in models. We define fairness as an equal opportunity to obtain a positive outcome for both the underprivileged and the privileged groups. The goal is to make recommendations to 2OS  on which statistical package(s) best fulfills its need to remain compliant with financial regulations.
 The purpose of our capstone team and this project is to research the evaluation of fairness in financial machine-learning products and evaluate current packages that quantify algorithmic bias in models. 
 
 
 
 
-## 3.Datasets
+## 3.Datasets <a name="Datasets"></a>
 Evaluation and mitigation of biases is applied to two datasets:
 
 1. [Taiwanese Credit Card Dataset](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients)
@@ -53,7 +53,7 @@ This dataset comprisesof an individual’s annual income results from various fa
 
 
 
-## 4.Overall Methodology
+## 4.Overall Methodology <a name="Methodology"></a>
 ![Picture1](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/f496d2a1-747a-48dd-a458-6628174149b9)
 
 
@@ -149,22 +149,25 @@ The smclarify package, provided by Amazon Web Services (AWS), is a powerful tool
 Fairness in ML mimics the Generative Adversarial Network logic of a zero-sum game, where the generative model is replaced by the predictive classifier model and the task of the adversarial model is to predict the sensitive attribute value from the output of the classifier. The adversarial training of the classifier is done through the extension of the original network architecture with an adversarial component. This technique ranks low in terms of Generalizability, Useability, and Interpretation as it involves the architecture of neural networks which is harder to implement and interpret when compared to XGBoost model. Therefore, we also decided against moving this package forward in our recommendation.
 
 
-## 5.Results
+
+
+## 5.Results <a name="Results"></a>
 
 The pre and post processing techniques of AIF 360 on mitigation of biases across race as the sensitive attribute on the adult dataset yield the following results.We can significant reduction in disparate impacts in many of these techniques while maintaining manageable degradation in performance. 
 
 ![output](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/d13c2383-2db9-46fd-ba28-c10c1071fc85)
 
 
-## 6.Conclusion
+## 6.Conclusion <a name="Conclusion"></a>
 In conclusion of the analysis oerformed, we recommend to follow a fairness pipeline as shown:
 
-<img width="1440" alt="Screenshot 2024-04-03 at 6 47 09 PM" src="https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/2f21c7f7-46ce-4077-88ed-0898c6f71fd5">
+<img width="1427" alt="Screenshot 2024-04-03 at 6 47 09 PM" src="https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/6d4ea78f-5e90-4167-be32-c07bab5a0cc3">
 
 
 
 
-## 7.Usage
+
+## 7.Usage <a name="Usage"></a>
 
 
 ```
@@ -179,7 +182,6 @@ pip install -r requirements.txt
 
 # Run the analysis script to perform the required experimentation
 cd 03_analysis/AIF360
-python
 ```
 
 Documentation related to the project can be found at: 
