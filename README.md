@@ -10,16 +10,18 @@
 
 
 **1. Building an unmitigated model**
+
 We opted for a baseline model using XGBoost, selected to align with client stipulations and preferences. XGBoost is preferred by clients due to its scalability and its enhanced performance capabilities. Additionally, feature importance plots help make the model somewhat explainable. 
 
 
 **2. Fit Python Packages**
+
 Using various packages, we tried to mitigate the bias in the baseline model. We rigorously assess these fairness tools to ensure their reliability and effectiveness, allowing us to offer informed recommendations on their practical use. We try various methods and metrics for each package to evaluate their effectiveness and compatibility with the client’s needs. The 10 Python packages we explored are:
 
-Package Name
-GitHub Repository
-AI Fairness 360
-https://github.com/Trusted-AI/AIF360
+Package Name, GitHub Repository
+
+AI Fairness 360, https://github.com/Trusted-AI/AIF360
+
 DALEX
 https://github.com/ModelOriented/DALEX
 Deon
