@@ -3,7 +3,7 @@
 #### Contributors: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124)
 
 ## Table of Contents
-1. [Introduction](#Introduction)  
+1. [Introduction](README.md#Introduction)  
 2. [Project Objective & Goals](#Objectives)  
 3. [Datasets](#Datasets)  
 4. [Overall Methodology](#Methodology)  
@@ -22,9 +22,6 @@ How machine learning algorithms perpetuate bias is keenly researched in academia
 ## Project Objective & Goals <a name="Objectives"></a>
 The purpose of our capstone team and this project is to research the evaluation of fairness in financial machine-learning products and evaluate current packages that quantify algorithmic bias in models. We define fairness as an equal opportunity to obtain a positive outcome for both the underprivileged and the privileged groups. The goal is to make recommendations to 2OS  on which statistical package(s) best fulfills its need to remain compliant with financial regulations.
 The purpose of our capstone team and this project is to research the evaluation of fairness in financial machine-learning products and evaluate current packages that quantify algorithmic bias in models. 
-
-
-
 
 ## 3.Datasets <a name="Datasets"></a>
 Evaluation and mitigation of biases is applied to two datasets:
