@@ -2,7 +2,19 @@
 
 #### Team Members: [Yiyu Lin](https://github.com/YYLinn), [Yinting Zhong](https://github.com/YintingZhong), [Genesis Qu](https://github.com/qu-genesis), [Pragya Raghuvanshi](https://github.com/pr-124)
 
-## Introduction
+## Table of Contents
+1. [Introduction]()
+2. [Project Objective & Goals]()
+    <br>2.1 [2nd Order Solutions]()
+3. [Datasets]()
+4. [Overall Methodology]()
+5. [Results]()
+6. [Conclusion]()
+7. [Usage]()
+
+
+
+## 1.Introduction
 Our client, 2nd Order Solutions (2OS), is a financial consulting firm committed to ensuring
 fairness in their financial solutions, as a core principle to their services. Besides, they must adhere
 to the strict regulatory framework laid out in regulations such as the Equal Credit Opportunity Act,
@@ -11,7 +23,12 @@ Learning algorithms are prone to mimic the biases existing in the real-world dat
 provide 2OS with tools to assess fairness and mitigate the biases before model handover, enhancing
 their business processes and value proposition.
 
-## Dataset
+
+## 2.Project Objective & Goals
+
+
+
+## 3.Dataset
 Evaluation and mitigation of biases is applied to two datasets:
 
 1. [Taiwanese Credit Card Dataset](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients)
@@ -38,7 +55,7 @@ This dataset comprisesof an individual’s annual income results from various fa
 
 
 
-## Overall Methodology
+## 4.Overall Methodology
 
 
 ![Picture1](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/f496d2a1-747a-48dd-a458-6628174149b9)
