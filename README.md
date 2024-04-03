@@ -144,11 +144,15 @@ The Responsible AI Toolbox encompasses a comprehensive array of tools, including
 
 The smclarify package, provided by Amazon Web Services (AWS), is a powerful tool within the AWS SageMaker suite designed for bias detection and explainability in machine learning models. It aids in identifying and reporting various types of biases in datasets and models—both pre- and post-training—to promote fairness. Additionally, it offers explainability features to elucidate the impact of input features on model predictions, which is vital for model transparency, debugging, and improvement. However, It focuses on identifying and explaining bias rather than providing direct solutions or strategies to mitigate these biases within machine learning models.
 
+**fairness-in-ml**
+
+Fairness in ML mimics the Generative Adversarial Network logic of a zero-sum game, where the generative model is replaced by the predictive classifier model and the task of the adversarial model is to predict the sensitive attribute value from the output of the classifier. The adversarial training of the classifier is done through the extension of the original network architecture with an adversarial component. This technique ranks low in terms of Generalizability, Useability, and Interpretation as it involves the architecture of neural networks which is harder to implement and interpret when compared to XGBoost model. Therefore, we also decided against moving this package forward in our recommendation.
 
 
 ## 5.Results
 
-The pre and post processing techniques of AIF 360 on mitigation of biases across race as the sensitive attribute on the adult dataset yield the following results.
+The pre and post processing techniques of AIF 360 on mitigation of biases across race as the sensitive attribute on the adult dataset yield the following results.We can significant reduction in disparate impacts in many of these techniques while maintaining manageable degradation in performance. 
+
 ![output](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/d13c2383-2db9-46fd-ba28-c10c1071fc85)
 
 
@@ -179,6 +183,6 @@ python
 ```
 
 Documentation related to the project can be found at: 
-``` https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/tree/main/05_documents``` 
+[Documentation](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/tree/main/05_documents)
 
 
