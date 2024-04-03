@@ -17,12 +17,12 @@ Evaluation and mitigation of biases is applied to two datasets:
 1. [Taiwanese Credit Card Dataset](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients)
 This dataset comprises of customers' default payments in Taiwan in 2005.
 **Some features of the data:**
-
-Target Variable *Default/Non-Default*
-
-Faetures: *23*
-
-Instances: *30000*
+   
+   Target Variable: *Default/Non-Default*
+   
+   Faetures: *23*
+   
+   Instances: *30000*
 
 
 2. [Adult(Census) Data set](https://archive.ics.uci.edu/dataset/2/adult)
@@ -30,11 +30,11 @@ This dataset comprisesof an individual’s annual income results from various fa
 
 **Some features of the data:**
    
-Target Variable *Income	>50K, <=50K*
-
-Faetures: *14*
-
-Instances: *48842*
+   Target Variable: *Income	>50K, <=50K*
+   
+   Faetures: *14*
+   
+   Instances: *48842*
 
 
 
