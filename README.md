@@ -155,13 +155,12 @@ The pre and post processing techniques of AIF 360 on mitigation of biases across
 ![output](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/d13c2383-2db9-46fd-ba28-c10c1071fc85)
 
 
+
 ## 6.Conclusion <a name="Conclusion"></a>
 In conclusion of the analysis oerformed, we recommend to follow a fairness pipeline as shown:
 
-<img width="1427" alt="Screenshot 2024-04-03 at 6 47 09 PM" src="https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/6d4ea78f-5e90-4167-be32-c07bab5a0cc3">
 
-
-
+<img width="1430" alt="Screenshot 2024-04-03 at 8 06 12 PM" src="https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/f8c1fba7-2f07-492a-beb4-3edee2555bf8">
 
 
 ## 7.Usage <a name="Usage"></a>
