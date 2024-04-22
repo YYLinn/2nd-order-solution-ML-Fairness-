@@ -54,28 +54,6 @@ This dataset comprisesof an individual’s annual income results from various fa
 ![Picture1](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/f496d2a1-747a-48dd-a458-6628174149b9)
 
 
-### 4.1 Building an unmitigated model
-We opted for an unmitigated baseline model using XGBoost, selected to align with client stipulations and preferences. 
-
-### 4.2 Fit Python packages (Fairness Assessment+Bias Mitigation)
-We built a baseline model using this XGBoost and, using various packages, tried to mitigate the bias in this baseline model. We rigorously assess these fairness tools to ensure their reliability and effectiveness, allowing us to offer informed recommendations on their practical use. We try various methods and metrics for each package to evaluate their effectiveness and compatibility with the client’s needs
-
-### 4.3 Performance Analysis and Comparison
-#### 4.3.1 Evaluation Metrics
-There has been a wealth of studies on fairness in machine learning and algorithmic biases in recent years. Specifically, scholars have proposed several definitions of fairness and different metrics that quantify bias – such as statistical parity, equalized odds, and disparate impact.
-Our analysis will cover a suite of fairness metrics but will focus on Disparate Impact. We zero in on the disparate impact metric due to its salience in the consumer lending space. Disparate Impact measures the ratio between the proportion of each group receiving the positive outcome. This is a commonly cited metric measuring fairness in financial decisions. In fact, the Consumer Compliance handbook published by the Board of Governors at the Federal Reserve highlights disparate impact as a textbook example of a violation of the ECOA.
-
-The Disparate Impact (DI) is calculated using the formula:
-
-![1_yeR8SOoMQX82OZirmDlA-A](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/159fe840-ba8c-417e-93b6-5e8a2068a0a6)
-
-
-
-
-#### 4.3.2 Balanced Accuracy 
-Balanced Accuracy calculates the mean between the True Positive Rate and the True Negative Rate in the model predictions. We want our clients to be able to grant financial products to people who would not default and deny them to people who would. Balanecd Accuracy is also ideal for Unbalanced Data, in cases where there are very few defaults in the data, this metric can capture model performance accurately.
-
-
 
 
 **1. Building an unmitigated model**
@@ -156,6 +134,24 @@ The smclarify package, provided by Amazon Web Services (AWS), is a powerful tool
 **fairness-in-ml**
 
 Fairness in ML mimics the Generative Adversarial Network logic of a zero-sum game, where the generative model is replaced by the predictive classifier model and the task of the adversarial model is to predict the sensitive attribute value from the output of the classifier. The adversarial training of the classifier is done through the extension of the original network architecture with an adversarial component. This technique ranks low in terms of Generalizability, Useability, and Interpretation as it involves the architecture of neural networks which is harder to implement and interpret when compared to XGBoost model. Therefore, we also decided against moving this package forward in our recommendation.
+
+
+
+### 4.3 Performance Analysis and Comparison
+#### 4.3.1 Evaluation Metrics
+There has been a wealth of studies on fairness in machine learning and algorithmic biases in recent years. Specifically, scholars have proposed several definitions of fairness and different metrics that quantify bias – such as statistical parity, equalized odds, and disparate impact.
+Our analysis will cover a suite of fairness metrics but will focus on Disparate Impact. We zero in on the disparate impact metric due to its salience in the consumer lending space. Disparate Impact measures the ratio between the proportion of each group receiving the positive outcome. This is a commonly cited metric measuring fairness in financial decisions. In fact, the Consumer Compliance handbook published by the Board of Governors at the Federal Reserve highlights disparate impact as a textbook example of a violation of the ECOA.
+
+The Disparate Impact (DI) is calculated using the formula:
+
+![1_yeR8SOoMQX82OZirmDlA-A](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/159fe840-ba8c-417e-93b6-5e8a2068a0a6)
+
+
+
+
+#### 4.3.2 Balanced Accuracy 
+Balanced Accuracy calculates the mean between the True Positive Rate and the True Negative Rate in the model predictions. We want our clients to be able to grant financial products to people who would not default and deny them to people who would. Balanecd Accuracy is also ideal for Unbalanced Data, in cases where there are very few defaults in the data, this metric can capture model performance accurately.
+
 
 
 
