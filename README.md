@@ -15,7 +15,8 @@
 
 ## 1.Introduction <a name="Introduction"></a>
 2nd Order Solutions, our client in this capstone project, is a financial consulting firm that works on providing analytical solutions to their financial partners – mainly banks domestically and internationally. The company uses most of its time to build statistical models to help clients craft valuation and credit lending policies, fraud detection, and due diligence.
-<br>As an institution that provides financial services to the public, 2OS, and its clients operate under a strict network of regulatory frameworks and oversight bodies. A key aspect of such regulation is the requirement – under the [Equal Credit Opportunity Act](https://consumer.ftc.gov/articles/credit-discrimination) – that the models that decide what consumers receive financial products may not discriminate on protected characteristics of the clients such as gender, race, disability status, and ethnicity. Such requirements are fundamental to the service that 2OS provides because current regulations render any model that introduces biases unusable.
+
+As an institution that provides financial services to the public, 2OS, and its clients operate under a strict network of regulatory frameworks and oversight bodies. A key aspect of such regulation is the requirement – under the [Equal Credit Opportunity Act](https://consumer.ftc.gov/articles/credit-discrimination) – that the models that decide what consumers receive financial products may not discriminate on protected characteristics of the clients such as gender, race, disability status, and ethnicity. Such requirements are fundamental to the service that 2OS provides because current regulations render any model that introduces biases unusable.
 How machine learning algorithms perpetuate bias is keenly researched in academia and the tech media world. A frequent way bias shows up is through biased training data. For example, if most women were denied opportunities in a company while few men were, then an algorithm trained on this data to screen resumes would doubtlessly recommend men disproportionately. In sensitive fields such as healthcare and finance, such bias needs to be carefully guarded against. Our goal is to provide 2OS with tools to assess fairness and mitigate the biases before model handover, enhancing their business processes and value proposition.
 
 
@@ -26,8 +27,8 @@ The purpose of our capstone team and this project is to research the evaluation 
 ## 3.Datasets <a name="Datasets"></a>
 Evaluation and mitigation of biases are applied to two datasets:
 
-1. [Taiwanese Credit Card Dataset](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients)
-This dataset comprises customers' default payments in Taiwan in 2005.
+1. [Taiwanese Credit Card Dataset](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients): This dataset comprises customers' default payments in Taiwan in 2005.
+
    **Some features of the data:**
    
    Target Variable: *Default/Non-Default*
@@ -37,8 +38,7 @@ This dataset comprises customers' default payments in Taiwan in 2005.
    Instances: *30000*
 
 
-2. [Adult(Census) Data set](https://archive.ics.uci.edu/dataset/2/adult)
-This dataset comprises an individual’s annual income results from various factors. Also known as the "Census Income" dataset.
+2. [Adult(Census) Data set](https://archive.ics.uci.edu/dataset/2/adult): This dataset comprises an individual’s annual income results from various factors. Also known as the "Census Income" dataset.
 
    **Some features of the data:**
    
@@ -86,10 +86,11 @@ Package Name, GitHub Repository
 Out of the ten packages, AI Fairness 360 outperforms the rest in terms of bias mitigation, usability, and generalizability. 
 
 **AIFairness 360** 
+
 AI Fairness 360(AIF 360) is an open-source library designed to help researchers detect, evaluate, and mitigate biases in machine learning algorithms. Depending on how they reduce bias, it offers a comprehensive suite of algorithms categorized as preprocessing, in-processing, and post-processing.
 Pre-processing techniques are applied before the training process on the dataset and produce fair representations which can be subsequently used by the machine learning model. In-processing is a bias mitigation algorithm applied to a model during its training. Post-processors are algorithms that edit the model outputs/predictions to maximize an objective function and prioritize fairness. We have employed the following algorithms to evaluate and mitigate bias across the groups.
 1. [Disparate Impact Remover](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.preprocessing.DisparateImpactRemover.html): Disparate Impact Remover is a preprocessing tool that modifies feature values to increase fairness across groups. This technique works by adjusting data points to reduce bias while maintaining the relative data ordering within each group. Essentially, it seeks to obscure any strong indicators that might reveal group affiliation without disrupting the inherent structure of the data.
-2. [Learning Fair Representations](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.preprocessing.LFR.html): LFR addresses group and individual fairness by finding latent representations that encode data and obfuscate information about protected attributes. It works by identifying protected attributes and encoding them thereby creating a new set of features, removing any association between the attributes and the output variable.
+2. [Learning Fair Representations](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.preprocessing.LFR.html): LFR addresses the group and individual fairness by finding latent representations that encode data and obfuscate information about protected attributes. It works by identifying protected attributes and encoding them thereby creating a new set of features, removing any association between the attributes and the output variable.
 3. [Reweighing](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.preprocessing.Reweighing.html): Reweighing is a technique that assigns differentiated weights to the training instances based on their group categories to promote fairness prior to the classification process. This approach doesn't alter any actual feature or label values but adjusts the significance of each sample during model training. Higher weights are assigned to instances that are underrepresented and lower weights are assigned to instances that are overrepresented.
 4. [Calibrated equalized odds postprocessing](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.postprocessing.CalibratedEqOddsPostprocessing.html#): This method specifically focuses on the principle of equalized odds. This technique operates on the output scores of an already trained classifier and adjusts the final decision labels to achieve fairness. The idea is to optimize the model's output probabilities to ensure that the odds of a positive classification are balanced across different groups for individuals with the same true outcome.
 5. [Reject option classification](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.postprocessing.RejectOptionClassification.html): This method works by identifying a 'confidence band' around the decision boundary of the model. Within this band, the algorithm preferentially alters outcomes to benefit the unprivileged groups and assigns unfavorable outcomes to the privileged groups. The rationale is to correct potential biases that might have influenced the model's training, particularly in those cases where the model is most uncertain about its decisions.
@@ -131,7 +132,7 @@ The smclarify package, provided by Amazon Web Services (AWS), is a powerful tool
 
 **fairness-in-ml**
 
-Fairness in ML mimics the Generative Adversarial Network logic of a zero-sum game, where the generative model is replaced by the predictive classifier model and the task of the adversarial model is to predict the sensitive attribute value from the output of the classifier. The adversarial training of the classifier is done through the extension of the original network architecture with an adversarial component. This technique ranks low in terms of Generalizability, Useability, and Interpretation as it involves the architecture of neural networks which is harder to implement and interpret when compared to XGBoost model. Therefore, we also decided against moving this package forward in our recommendation.
+Fairness in ML mimics the Generative Adversarial Network logic of a zero-sum game, where the generative model is replaced by the predictive classifier model and the task of the adversarial model is to predict the sensitive attribute value from the output of the classifier. The adversarial training of the classifier is done through the extension of the original network architecture with an adversarial component. This technique ranks low in terms of Generalizability, Usability, and Interpretation as it involves the architecture of neural networks which is harder to implement and interpret when compared to the XGBoost model. Therefore, we also decided against moving this package forward in our recommendation.
 
 
 
@@ -148,7 +149,7 @@ The Disparate Impact (DI) is calculated using the formula:
 
 
 #### 4.3.2 Balanced Accuracy 
-Balanced Accuracy calculates the mean between the True Positive Rate and the True Negative Rate in the model predictions. We want our clients to be able to grant financial products to people who would not default and deny them to people who would. Balanecd Accuracy is also ideal for Unbalanced Data, in cases where there are very few defaults in the data, this metric can capture model performance accurately.
+Balanced Accuracy calculates the mean between the True Positive Rate and the True Negative Rate in the model predictions. We want our clients to be able to grant financial products to people who would not default and deny them to people who would. Balanced Accuracy is also ideal for Unbalanced Data, in cases where there are very few defaults in the data, this metric can capture model performance accurately.
 
 
 
@@ -161,14 +162,14 @@ Balanced Accuracy calculates the mean between the True Positive Rate and the Tru
 
 
 
-The pre and post processing techniques of AIF 360 on mitigation of biases across race as the sensitive attribute on the adult dataset yield the following results.We can significant reduction in disparate impacts in many of these techniques while maintaining manageable degradation in performance. 
+The pre and post-processing techniques of AIF 360 on mitigation of biases across race as the sensitive attribute on the adult dataset yield the following results.We can significant reduction in disparate impacts in many of these techniques while maintaining manageable degradation in performance. 
 
 ![output](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/d13c2383-2db9-46fd-ba28-c10c1071fc85)
 
 
 
 ## 6.Conclusion <a name="Conclusion"></a>
-In conclusion of the analysis oerformed, we recommend to follow a fairness pipeline as shown:
+In conclusion of the analysis performed, we recommend to follow a fairness pipeline as shown:
 
 
 <img width="1430" alt="Screenshot 2024-04-03 at 8 06 12 PM" src="https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/f8c1fba7-2f07-492a-beb4-3edee2555bf8">
@@ -178,7 +179,7 @@ In conclusion of the analysis oerformed, we recommend to follow a fairness pipel
 
 
 ```
-# Create a virutal env to install the requierd packages
+# Create a virtual env to install the required packages
 python -m venv /path/to/new/virtual/environment
 source /path/to/new/virtual/environment/bin/activate
 
