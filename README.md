@@ -105,9 +105,21 @@ Package Name, GitHub Repository
 10. PiML, https://github.com/SelfExplainML/PiML-Toolbox
 
 
-Out of the ten packages, AI Fairness 360 outperforms teh rest in terms of bias mitigation, usability, generalizability. 
+Out of the ten packages, AI Fairness 360 outperforms the rest in terms of bias mitigation, usability, generalizability. 
+# include details about aifairness 360 and the techniques used
+**AIFairness 360** 
+
+
+
+
 
 Below, we include a brief description of the other 9 packages that we tested for bias mitigation and teh reasons behind their exclusion from the experimental analysis.
+
+
+
+
+
+
 
 
 **DALEX** 
@@ -150,6 +162,11 @@ Fairness in ML mimics the Generative Adversarial Network logic of a zero-sum gam
 
 ## 5.Results <a name="Results"></a>
 
+
+## include results from matching 
+
+
+
 The pre and post processing techniques of AIF 360 on mitigation of biases across race as the sensitive attribute on the adult dataset yield the following results.We can significant reduction in disparate impacts in many of these techniques while maintaining manageable degradation in performance. 
 
 ![output](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/d13c2383-2db9-46fd-ba28-c10c1071fc85)
@@ -177,8 +194,10 @@ cd 2nd-order-solution-ML-Fairness
 pip install -r requirements.txt
 
 # Run the analysis script to perform the required experimentation
-cd 03_analysis/Experimentation/main.py
+python 03_analysis/Experimentation/main.py --technique <<Fairness_technique>> --sensitive_attr <<sensitive attribute>>
 ```
+
+The code will give json files with various performance metics and disparate impact of the new model, according to the technique specified.
 
 Documentation related to the project can be found at: 
 [Documentation](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/tree/main/05_documents)
