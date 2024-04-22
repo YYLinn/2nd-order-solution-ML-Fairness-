@@ -1,6 +1,7 @@
+import argparse
 from dataset import load_dataset
 from base_model import train_base_model
-from techniques import (
+from fairness_technique import (
     apply_reweighting,
     apply_lfr,
     apply_disparate_impact,
@@ -9,95 +10,88 @@ from techniques import (
 )
 from generate_json import generate_json
 
-# Load dataset
-data_train, data_test = load_dataset()
 
-# Define privileged and unprivileged groups
-unprivileged_groups = [{"race": 0}]
-privileged_groups = [{"race": 1}]
+def main():
+    parser = argparse.ArgumentParser(
+        description="Perform the required experimentation."
+    )
+    parser.add_argument(
+        "--technique", type=str, help="Name of the fairness technique to use"
+    )
+    parser.add_argument(
+        "--sensitive_attr",
+        type=str,
+        help="Name of the sensitive attribute",
+    )
+    args = parser.parse_args()
 
-# Train base model
-base_model_metrics = train_base_model(
-    data_train.features,
-    data_train.labels.ravel(),
-    data_test.features,
-    data_test.labels.ravel(),
-    unprivileged_groups,
-    privileged_groups,
-)
+    if args.technique is None:
+        print("Please provide a technique name using --technique")
+        return
+    if args.sensitive_attr is None:
+        print(
+            "Please provide a name for the sensitive attribute using --sensitive_attr"
+        )
+        return
 
-# Apply reweighting
-data_train_reweighed = apply_reweighting(
-    data_train, unprivileged_groups, privileged_groups
-)
-reweight_metrics = train_base_model(
-    data_train_reweighed.features,
-    data_train_reweighed.labels.ravel(),
-    data_test.features,
-    data_test.labels.ravel(),
-    unprivileged_groups,
-    privileged_groups,
-)
+    unprivileged_groups = [{args.sensitive_attr: 0}]
+    privileged_groups = [{args.sensitive_attr: 1}]
+    # Load dataset
 
-# Apply LFR
-data_train_lfr = apply_lfr(data_train, unprivileged_groups, privileged_groups)
-lfr_metrics = train_base_model(
-    data_train_lfr.features,
-    data_train_lfr.labels.ravel(),
-    data_test.features,
-    data_test.labels.ravel(),
-    unprivileged_groups,
-    privileged_groups,
-)
+    data_train, data_test = load_dataset(args.sensitive_attr)
 
-# Apply Disparate Impact Remover
-data_train_di = apply_disparate_impact(
-    data_train, unprivileged_groups, privileged_groups
-)
-di_metrics = train_base_model(
-    data_train_di.features,
-    data_train_di.labels.ravel(),
-    data_test.features,
-    data_test.labels.ravel(),
-    unprivileged_groups,
-    privileged_groups,
-)
+    # Train base model
+    base_model_metrics = train_base_model(
+        data_train.features,
+        data_train.labels.ravel(),
+        data_test,
+        unprivileged_groups,
+        privileged_groups,
+    )
 
-# Apply Calibrated Equality of Odds
-data_test_cpp_new = apply_calibrated_eq_odds(
-    data_train, data_test, unprivileged_groups, privileged_groups
-)
-cp_metrics = train_base_model(
-    data_train.features,
-    data_train.labels.ravel(),
-    data_test_cpp_new.features,
-    data_test_cpp_new.labels.ravel(),
-    unprivileged_groups,
-    privileged_groups,
-)
+    # Apply the specified fairness technique
+    if args.technique == "reweighting":
+        # Apply reweighting
+        data_train_fair = apply_reweighting(
+            data_train, unprivileged_groups, privileged_groups
+        )
+    elif args.technique == "lfr":
+        # Apply LFR
+        data_train_fair = apply_lfr(data_train, unprivileged_groups, privileged_groups)
+    elif args.technique == "disparate_impact":
+        # Apply Disparate Impact Remover
+        data_train_fair = apply_disparate_impact(
+            data_train, unprivileged_groups, privileged_groups
+        )
+    elif args.technique == "calibrated_eq_odds":
+        # Apply Calibrated Equality of Odds
+        data_train_fair = apply_calibrated_eq_odds(
+            data_train, data_test, unprivileged_groups, privileged_groups
+        )
+    elif args.technique == "reject_option_classification":
+        # Apply Reject Option Classification
+        data_train_fair = apply_reject_option_classification(
+            data_train, data_test, unprivileged_groups, privileged_groups
+        )
+    else:
+        print("Unknown fairness technique:", args.technique)
+        return
 
-# Apply Reject Option Classification
-data_test_roc = apply_reject_option_classification(
-    data_train, data_test, unprivileged_groups, privileged_groups
-)
-roc_metrics = train_base_model(
-    data_train.features,
-    data_train.labels.ravel(),
-    data_test_roc.features,
-    data_test_roc.labels.ravel(),
-    unprivileged_groups,
-    privileged_groups,
-)
+    # Train and evaluate model using the fair dataset
+    fair_model_metrics = train_base_model(
+        data_train_fair.features,
+        data_train_fair.labels.ravel(),
+        data_test,
+        unprivileged_groups,
+        privileged_groups,
+    )
 
-# Generate JSON outputs
-generate_json(
-    [
-        base_model_metrics,
-        reweight_metrics,
-        lfr_metrics,
-        di_metrics,
-        cp_metrics,
-        roc_metrics,
-    ],
-    "fairness_metrics.json",
-)
+    # Generate JSON outputs
+    generate_json(
+        [base_model_metrics, fair_model_metrics],
+        "fairness_metrics.json",
+    )
+
+
+if __name__ == "__main__":
+    main()
