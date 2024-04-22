@@ -177,7 +177,7 @@ cd 2nd-order-solution-ML-Fairness
 pip install -r requirements.txt
 
 # Run the analysis script to perform the required experimentation
-cd 03_analysis/AIF360
+cd 03_analysis/Experimentation/main.py
 ```
 
 Documentation related to the project can be found at: 
