@@ -56,14 +56,14 @@ This dataset comprisesof an individual’s annual income results from various fa
 
 
 
-**1. Building an unmitigated model**
+### 4.1 Building an unmitigated model
 
 We opted for a baseline model using XGBoost, selected to align with client stipulations and preferences. XGBoost is preferred by clients due to its scalability and its enhanced performance capabilities. 
 
 Additionally, feature importance plots help make the model somewhat explainable. 
 
 
-**2. Fit Python Packages**
+### 4.2 Fit Python Packages
 
 Using various packages, we tried to mitigate the bias in the baseline model. We rigorously assess these fairness tools to ensure their reliability and effectiveness, allowing us to offer informed recommendations on their practical use. We try various methods and metrics for each package to evaluate their effectiveness and compatibility with the client’s needs. 
 
@@ -138,7 +138,7 @@ Fairness in ML mimics the Generative Adversarial Network logic of a zero-sum gam
 
 
 ### 4.3 Performance Analysis and Comparison
-#### 4.3.1 Evaluation Metrics
+#### 4.3.1 Fairness Evaluation Metrics
 There has been a wealth of studies on fairness in machine learning and algorithmic biases in recent years. Specifically, scholars have proposed several definitions of fairness and different metrics that quantify bias – such as statistical parity, equalized odds, and disparate impact.
 Our analysis will cover a suite of fairness metrics but will focus on Disparate Impact. We zero in on the disparate impact metric due to its salience in the consumer lending space. Disparate Impact measures the ratio between the proportion of each group receiving the positive outcome. This is a commonly cited metric measuring fairness in financial decisions. In fact, the Consumer Compliance handbook published by the Board of Governors at the Federal Reserve highlights disparate impact as a textbook example of a violation of the ECOA.
 
