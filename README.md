@@ -24,27 +24,27 @@ The purpose of our capstone team and this project is to research the evaluation 
 The purpose of our capstone team and this project is to research the evaluation of fairness in financial machine-learning products and evaluate current packages that quantify algorithmic bias in models. 
 
 ## 3.Datasets <a name="Datasets"></a>
-Evaluation and mitigation of biases is applied to two datasets:
+Evaluation and mitigation of biases are applied to two datasets:
 
 1. [Taiwanese Credit Card Dataset](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients)
-This dataset comprises of customers' default payments in Taiwan in 2005.
+This dataset comprises customers' default payments in Taiwan in 2005.
    **Some features of the data:**
    
    Target Variable: *Default/Non-Default*
    
-   Faetures: *23*
+   Features: *23*
    
    Instances: *30000*
 
 
 2. [Adult(Census) Data set](https://archive.ics.uci.edu/dataset/2/adult)
-This dataset comprisesof an individual’s annual income results from various factors. Also known as "Census Income" dataset.
+This dataset comprises an individual’s annual income results from various factors. Also known as the "Census Income" dataset.
 
    **Some features of the data:**
    
    Target Variable: *Income	>50K, <=50K*
    
-   Faetures: *14*
+   Features: *14*
    
    Instances: *48842*
 
@@ -83,21 +83,19 @@ Package Name, GitHub Repository
 10. PiML, https://github.com/SelfExplainML/PiML-Toolbox
 
 
-Out of the ten packages, AI Fairness 360 outperforms the rest in terms of bias mitigation, usability, generalizability. 
-# include details about aifairness 360 and the techniques used
+Out of the ten packages, AI Fairness 360 outperforms the rest in terms of bias mitigation, usability, and generalizability. 
+
 **AIFairness 360** 
+AI Fairness 360(AIF 360) is an open-source library designed to help researchers detect, evaluate, and mitigate biases in machine learning algorithms. Depending on how they reduce bias, it offers a comprehensive suite of algorithms categorized as preprocessing, in-processing, and post-processing.
+Pre-processing techniques are applied before the training process on the dataset and produce fair representations which can be subsequently used by the machine learning model. In-processing is a bias mitigation algorithm applied to a model during its training. Post-processors are algorithms that edit the model outputs/predictions to maximize an objective function and prioritize fairness. We have employed the following algorithms to evaluate and mitigate bias across the groups.
+1. [Disparate Impact Remover](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.preprocessing.DisparateImpactRemover.html): Disparate Impact Remover is a preprocessing tool that modifies feature values to increase fairness across groups. This technique works by adjusting data points to reduce bias while maintaining the relative data ordering within each group. Essentially, it seeks to obscure any strong indicators that might reveal group affiliation without disrupting the inherent structure of the data.
+2. [Learning Fair Representations](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.preprocessing.LFR.html): LFR addresses group and individual fairness by finding latent representations that encode data and obfuscate information about protected attributes. It works by identifying protected attributes and encoding them thereby creating a new set of features, removing any association between the attributes and the output variable.
+3. [Reweighing](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.preprocessing.Reweighing.html): Reweighing is a technique that assigns differentiated weights to the training instances based on their group categories to promote fairness prior to the classification process. This approach doesn't alter any actual feature or label values but adjusts the significance of each sample during model training. Higher weights are assigned to instances that are underrepresented and lower weights are assigned to instances that are overrepresented.
+4. [Calibrated equalized odds postprocessing](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.postprocessing.CalibratedEqOddsPostprocessing.html#): This method specifically focuses on the principle of equalized odds. This technique operates on the output scores of an already trained classifier and adjusts the final decision labels to achieve fairness. The idea is to optimize the model's output probabilities to ensure that the odds of a positive classification are balanced across different groups for individuals with the same true outcome.
+5. [Reject option classification](https://aif360.readthedocs.io/en/stable/modules/generated/aif360.algorithms.postprocessing.RejectOptionClassification.html): This method works by identifying a 'confidence band' around the decision boundary of the model. Within this band, the algorithm preferentially alters outcomes to benefit the unprivileged groups and assigns unfavorable outcomes to the privileged groups. The rationale is to correct potential biases that might have influenced the model's training, particularly in those cases where the model is most uncertain about its decisions.
 
 
-
-
-
-Below, we include a brief description of the other 9 packages that we tested for bias mitigation and teh reasons behind their exclusion from the experimental analysis.
-
-
-
-
-
-
+Below, we include a brief description of the other 9 packages that we tested for bias mitigation and the reasons behind their exclusion from the experimental analysis.
 
 
 **DALEX** 
@@ -112,7 +110,7 @@ Deon is a command-line tool that appends an ethics checklist to the project for 
 
 **Fairlearn**
 
-Fairlearn is an open-source library designed to help researchers assess and mitigate unfairness in machine learning models. It provides tools for evaluating and visualizing fairness metrics and helps users understand and address potential biases in their models. In addition to assessment, Fairlearn provides algorithms to mitigate unfairness in machine learning models. These algorithms aim to adjust model predictions to reduce disparities while maintaining overall predictive performance. There are two different mitigation strategies in the Fairlearn package, Postprocessing and Reductions. We have decided to remove Fairlearn for consideration because one of the only two mitigation methods, “Reductions”, failed to reduce fairness for our dataset. We speculated that this may be due to the reason that the “Reductions” approach aims to reduce biases from multiple features holistically. Thus, in our analysis when we only focus on one feature at a time, the mitigation was not prioritizing the feature we selected. Since the inner workings of which feature the “Reductions” approach prioritizes was missing from the documentation, we also find this package relatively difficult to work with. 
+Fairlearn is an open-source library designed to help researchers assess and mitigate unfairness in machine learning models. It provides tools for evaluating and visualizing fairness metrics and helps users understand and address potential biases in their models. In addition to assessment, Fairlearn provides algorithms to mitigate unfairness in machine learning models. These algorithms aim to adjust model predictions to reduce disparities while maintaining overall predictive performance. There are two different mitigation strategies in the Fairlearn package, [Postprocessing](https://fairlearn.org/v0.9/user_guide/mitigation/preprocessing.html) and [Reductions](https://fairlearn.org/v0.9/user_guide/mitigation/reductions.html). We have decided to remove Fairlearn for consideration because one of the only two mitigation methods, “Reductions”, failed to reduce fairness for our dataset. We speculated that this may be due to the reason that the “Reductions” approach aims to reduce biases from multiple features holistically. Thus, in our analysis when we only focus on one feature at a time, the mitigation was not prioritizing the feature we selected. Since the inner workings of which feature the “Reductions” approach prioritizes was missing from the documentation, we also find this package relatively difficult to work with. 
 
 
 **Themis-ML**
@@ -129,7 +127,7 @@ The Responsible AI Toolbox encompasses a comprehensive array of tools, including
 
 **Smclarify**
 
-The smclarify package, provided by Amazon Web Services (AWS), is a powerful tool within the AWS SageMaker suite designed for bias detection and explainability in machine learning models. It aids in identifying and reporting various types of biases in datasets and models—both pre- and post-training—to promote fairness. Additionally, it offers explainability features to elucidate the impact of input features on model predictions, which is vital for model transparency, debugging, and improvement. However, It focuses on identifying and explaining bias rather than providing direct solutions or strategies to mitigate these biases within machine learning models.
+The smclarify package, provided by Amazon Web Services (AWS), is a powerful tool within the AWS SageMaker suite designed for bias detection and explainability in machine learning models. It aids in identifying and reporting various types of biases in datasets and models—both pre and post-training—to promote fairness. Additionally, it offers explainability features to elucidate the impact of input features on model predictions, which is vital for model transparency, debugging, and improvement. However, It focuses on identifying and explaining bias rather than providing direct solutions or strategies to mitigate these biases within machine learning models.
 
 **fairness-in-ml**
 
