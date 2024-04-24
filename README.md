@@ -158,11 +158,15 @@ Balanced Accuracy calculates the mean between the True Positive Rate and the Tru
 ## 5.Results <a name="Results"></a>
 
 
-## include results from matching 
+In actual assessment of fairness in financial machine learning models, we'll have to control for the effects of variables that are not protected under the ECOA – such as income and educational background. The effects of these unprotected variables can make our estimate of bias in the model completely inaccurate. For example, if a higher proportion of female applicants in the data hold higher income and have more years of education, it would make sense if they receive a loan at a higher rate than their male counterparts. A simplistic assessment of disparate impact would gloss over these nuances.
 
+To address the confounding effect of unprotected variables, we applied the Matching technique often used in Causal Inference, where we matched pairs of observations in the data between the unprivileged group and the privileged group such that a subset of columns share similar support. In other words, and picking up from our example earlier, we sample a smaller subset of the whole dataset where the female group and the male group both have similar distribution in income and years of education, allowing us an apples-to-apples comparison.
 
+We apply this principle to our Adult dataset. Since the target variable in the data is income, the possible confounders are years of education and hours worked each week. Using race as the protected attribute here (note that this process can and should be repeated for all protected attributes of interest), we applied the DAME algorithm in Python and picked the subset of data after an appropriate number of iterations. This matching process filtered out about 27% of White applicants and 14% of Non-White applicants. Consequently, we identified that the bias in the data due to race was slightly less than we thought: the new disparate impact was 0.62 instead of the original 0.60.
 
-The pre and post-processing techniques of AIF 360 on mitigation of biases across race as the sensitive attribute on the adult dataset yield the following results.We can significant reduction in disparate impacts in many of these techniques while maintaining manageable degradation in performance. 
+After this initial matching process, we can move on to applying the many bias mitigation techniques in the model and testing their efficacies.
+
+The pre and post-processing techniques of AIF 360 on mitigation of biases across race as the sensitive attribute on the adult dataset yield the following results. We can significant reduction in disparate impacts in many of these techniques while maintaining manageable degradation in performance. 
 
 ![output](https://github.com/YYLinn/2nd-order-solution-ML-Fairness-/assets/112579333/d13c2383-2db9-46fd-ba28-c10c1071fc85)
 
