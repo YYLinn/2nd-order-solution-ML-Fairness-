@@ -60,7 +60,9 @@ Evaluation and mitigation of biases are applied to two datasets:
 
 We opted for a baseline model using XGBoost, selected to align with client stipulations and preferences. XGBoost is preferred by clients due to its scalability and its enhanced performance capabilities. 
 
-Additionally, feature importance plots help make the model somewhat explainable. 
+Additionally, feature importance plots from XGBoost models help make the model explainable. 
+
+Models trained in folder "02_model/model" includes 3 models. Model1 is trained by all variables of the dataset, Model2 is trained by all variables excluding four Protected Variables (age, education, sex, marriage), and Model3 is trained excluding three Protected Variables (age, education, sex).
 
 
 ### 4.2 Fit Python Packages
